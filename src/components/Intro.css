@@ -1,0 +1,66 @@
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  p {
+    margin: 0;
+    position: absolute;
+    font: 16px Verdana;
+    color: #eee;
+    height: 25px;
+    top: calc(100vh - 30px);
+    text-shadow: 0 0 2px white;
+  }
+  
+  p a {
+    text-decoration: none;
+    color: #aaa;
+  }
+  
+  span {
+    font-size: 11px;
+  }
+  
+  p > a:first-of-type {
+    font-size: 20px;
+  }
+  
+  body {
+    overflow: hidden;
+  }
+  .intro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f8ff;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .blow-candle-button {
+    background: linear-gradient(45deg, #ff007f, #ff77ff);
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  
+  .blow-candle-button .arrow {
+    font-size: 24px;
+  }
+  
+  .blow-candle-button:hover {
+    background: linear-gradient(45deg, #ff77ff, #ff007f);
+    box-shadow: 0 0 20px rgba(255, 119, 255, 0.8);
+    transform: scale(1.1);
+  }
+  

@@ -1,0 +1,263 @@
+/* Background container */
+.birthday-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1; /* Đảm bảo video nằm dưới các thành phần khác */
+  object-fit: cover;
+}
+
+/* Hình bánh sinh nhật */
+.cake-container {
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+
+.birthday-cake {
+  width: 350px;
+  height: auto;
+  border-radius: 15px;
+  animation: gradient-animation 5s ease infinite;
+  transition: transform 0.3s ease;
+}
+
+.birthday-cake:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 119, 255, 0.8);
+}
+
+@keyframes gradient-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Nút mở thiệp */
+.open-button-container {
+  margin-top: 20px;
+  z-index: 20; /* Đảm bảo nút OPEN luôn nổi bật */
+  display: flex;
+  justify-content: center;
+}
+
+.open-button {
+  background: linear-gradient(45deg, #ff007f, #ff77ff);
+  color: white;
+  padding: 15px 30px;
+  font-size: 22px;
+  font-weight: bold;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  background-size: 200% 200%;
+  animation: gradient-move 5s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.open-button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, #ff77ff, #ff007f, #007fff, #77ffff);
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  border-radius: 50px;
+}
+
+.open-button:hover::before {
+  opacity: 0.3;
+}
+
+.open-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 119, 255, 0.8), 0 0 30px rgba(119, 119, 255, 0.6);
+}
+
+.open-button:active {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 119, 255, 1), 0 0 25px rgba(119, 119, 255, 0.8);
+}
+
+/* Gradient animation */
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+/* Thiệp hiện ra sau khi nhấn OPEN */
+.greeting-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.2);
+  width: 40%;
+  height: 60%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  z-index: 30;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Nội dung thiệp */
+.card-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.message-section {
+  flex: 1;
+  margin-right: 20px;
+  font-size: 18px;
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.image-section {
+  flex: 0.5;
+}
+
+.greeting-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Hình ảnh trang trí phía dưới */
+.image-carousel {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 150px; /* Điều chỉnh chiều cao nếu cần */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.image-track {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+.party-image {
+  width: auto;
+  height: 120px;
+  margin: 0 10px;
+  border-radius: 10px; /* Bo góc cho các ảnh */
+  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0.7;
+  position: relative;
+}
+
+.party-image:hover {
+  transform: scale(1.5);
+  opacity: 1;
+  box-shadow: 0 0 15px rgba(255, 119, 255, 0.8);
+}
+
+.party-image:hover::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 15px;
+  background: linear-gradient(45deg, #ff007f, #ff77ff, #007fff, #77ffff);
+  background-size: 200% 200%;
+  animation: gradient-border-animation 3s linear infinite;
+  z-index: -1;
+}
+
+/* Hiệu ứng gradient đổi màu cho viền khi hover */
+@keyframes gradient-border-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Hiệu ứng rơi */
+.falling-item {
+  position: absolute;
+  top: 0;
+  font-size: 30px;
+  animation: fall 10s linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(100vh) translateX(calc(-30px + 60px * var(--x-direction)));
+  }
+}
+.audio-control {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.audio-button {
+  background: linear-gradient(45deg, #007fff, #00d4ff);
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  background-size: 200% 200%;
+  animation: gradient-move 5s ease infinite;
+  display: inline-flex;
+  align-items: center;
+}
+
+.audio-button.playing {
+  background: linear-gradient(45deg, #00d4ff, #007fff);
+}
+
+.audio-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+}
+
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+

@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';  // Use Routes instead of Switch
+import Login from './components/Login';
+import Greeting from './components/Greeting';
+import HappyBirthday from './components/HappyBirthday';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Routes>
+          {/* Default Route (Login Page) */}
+          <Route path="/" element={<Login />} />
+          {/* Greeting Page Route after successful login */}
+          <Route path="/greeting" element={<Greeting />} />
+          <Route path="/happy-birthday" element={<HappyBirthday />} /> {/* Trang HappyBirthDay */}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
