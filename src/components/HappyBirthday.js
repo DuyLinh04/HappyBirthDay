@@ -13,7 +13,7 @@ import anh7 from './anh/419732472_3647659035510632_5655741169154985478_n.jpg';
 import anh8 from './anh/419874730_386860103737147_1774591954121401850_n.jpg';
 import anh9 from './anh/426545047_375412881863108_552223444374922122_n.jpg';
 import anh10 from './anh/429757687_369780765930274_160539925270951672_n.jpg';
-import videoAnya from './anh/Anya Forger como Merlina Addams haciendo el baile de TIKTOK - PC Version - 4k - Animacion 3D.mp4';
+import videoAnya from './anh/Anya1.mp4';
 
 const HappyBirthDay = () => {
   const [isCardOpen, setIsCardOpen] = useState(false);
