@@ -52,7 +52,9 @@ const Login = () => {
         </div>
       </div>
       <div className="star-background"></div>
+      
     </div>
+   
   );
 };
 

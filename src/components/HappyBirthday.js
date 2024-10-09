@@ -15,12 +15,20 @@ import anh9 from './anh/426545047_375412881863108_552223444374922122_n.jpg';
 import anh10 from './anh/429757687_369780765930274_160539925270951672_n.jpg';
 import videoAnya from './anh/Anya1.mp4';
 
+import { useNavigate } from 'react-router-dom';
 const HappyBirthDay = () => {
   const [isCardOpen, setIsCardOpen] = useState(false);
   const [fallingItems, setFallingItems] = useState([]);
   const backgroundAudioRef = useRef(null);
   const cardAudioRef = useRef(null);
   const cardRef = useRef(null);
+
+  const navigate = useNavigate();
+
+  // Hàm điều hướng đến trang Wish
+  const goToWishPage = () => {
+    navigate('/wish');
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -71,18 +79,27 @@ const HappyBirthDay = () => {
   const toggleCard = (e) => {
     e.stopPropagation(); // Ngăn chặn sự kiện nhấp chuột lan ra ngoài
     setIsCardOpen((prevState) => !prevState);
-
+  
     if (!isCardOpen) {
       // Khi mở thiệp, dừng nhạc nền và phát nhạc trong thiệp
       backgroundAudioRef.current.pause();
-      cardAudioRef.current.play();
+      try {
+        cardAudioRef.current.play();
+      } catch (error) {
+        console.log('Error playing card audio:', error);
+      }
     } else {
       // Khi đóng thiệp, dừng nhạc trong thiệp và phát lại nhạc nền
       cardAudioRef.current.pause();
       cardAudioRef.current.currentTime = 0;
-      backgroundAudioRef.current.play();
+      try {
+        backgroundAudioRef.current.play();
+      } catch (error) {
+        console.log('Error playing background audio:', error);
+      }
     }
   };
+  
 
   return (
     <div className="birthday-container">
@@ -118,7 +135,14 @@ const HappyBirthDay = () => {
         <button className="open-button" onClick={toggleCard}>
           {isCardOpen ? 'CLOSE' : 'OPEN'}
         </button>
+        
       </div>
+      <div className="happy-birthday-container">
+      
+      <button onClick={goToWishPage} className="navigate-button">
+        Go to Wish Page
+      </button>
+    </div>
 
       {/* Nội dung chúc mừng sau khi mở thiệp */}
       {isCardOpen && (

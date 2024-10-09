@@ -1,0 +1,184 @@
+.wish-container {
+  position: relative;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(180deg, #1e3268 0%, #4b6791 100%);
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.falling-star {
+  position: absolute;
+  top: -10px; /* Bắt đầu từ trên cùng của màn hình */
+  background: rgba(255, 255, 255, 0.8);
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  animation: fall 8s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Các hiệu ứng khác cho hộp quà và nút */
+.gift-box-container {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.wish-button {
+  background: #b0a87b;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  color: #eeebe9;
+  font-size: 1.5rem;
+  font-family: 'Dancing Script', cursive;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1rem;
+}
+
+.wish-button:hover {
+  background: #eaddb7;
+  color: #f29886;
+}
+
+.gift-box {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  background: #ff6f61;
+  border-radius: 10px;
+  margin-top: 1rem;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  animation: bounce 2s infinite;
+}
+
+.lid {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: #ff6f61;
+  border-radius: 10px;
+  animation: openLid 0.5s forwards;
+}
+
+@keyframes openLid {
+  0% { transform: rotate(0); }
+  100% { transform: rotate(-30deg); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.wish-form {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1.5rem;
+  border-radius: 16px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 3s ease, opacity 3s ease;
+  animation: appear 1s ease-out;
+  margin-top: 1rem;
+  font-family: 'Dancing Script', cursive;
+}
+
+.wish-form.flying {
+  animation: flyAway 3s ease-in forwards;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes flyAway {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-300px) rotate(10deg);
+    opacity: 0;
+  }
+}
+
+/* Cập nhật cho ô textarea */
+.wish-textarea {
+  width: 100%;
+  height: 120px;
+  padding: 1rem;
+  border: 2px solid #ff6f61;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-family: 'Dancing Script', cursive;
+  background: rgba(255, 250, 250, 0.95);
+  color: #555; /* Màu chữ mềm mại hơn */
+  resize: none;
+}
+
+.wish-textarea::placeholder {
+  color: #b0a87b;
+  opacity: 0.7;
+}
+
+.submit-button {
+  background: #ff6f61;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  color: #fff;
+  font-size: 1.2rem;
+  font-family: 'Dancing Script', cursive;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 1rem;
+}
+
+.submit-button:hover {
+  background: #ff8566;
+}
+
+.thank-you-message {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  max-width: 450px;
+  width: 90%;
+  font-family: 'Dancing Script', cursive;
+  margin-top: 2rem;
+  color: #4b6791;
+}

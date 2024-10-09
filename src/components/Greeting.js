@@ -37,7 +37,7 @@ const Greeting = () => {
   // Xử lý khi người dùng nhấn submit
   const handleSubmit = (e) => {
     e.preventDefault(); // Ngăn không cho trang reload
-    if (inputDate === '10/10/2003') {
+    if (inputDate === '11/10/2003') {
       // Nếu nhập đúng ngày sinh
       setErrorMessage(''); // Xóa thông báo lỗi nếu có
       startCountdown(); // Bắt đầu đếm ngược
