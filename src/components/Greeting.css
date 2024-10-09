@@ -1,153 +1,210 @@
 /* General styles for the greeting page */
 .greeting-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background: url('https://cellphones.com.vn/sforum/wp-content/uploads/2022/02/15-4.jpg') no-repeat center center fixed;
-    background-size: cover; /* Đảm bảo ảnh nền phủ toàn bộ màn hình */
-    font-family: 'Poppins', sans-serif; /* Font mềm mại hơn */
-    color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: url('https://cellphones.com.vn/sforum/wp-content/uploads/2022/02/15-4.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  padding: 20px; /* Padding for better spacing on smaller screens */
+}
+
+/* Style for the clock container */
+.clock-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Style for the clock */
+.clock {
+  background-color: transparent;
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.6), 0 0 60px 30px rgba(255, 255, 255, 0.3);
+  text-align: center;
+  position: relative;
+  border: 3px solid transparent;
+  animation: glow 4s infinite alternate;
+}
+
+/* Style for time text */
+.time-text {
+  color: #fff;
+  font-size: 56px;
+  margin: 0;
+  font-family: 'Pacifico', cursive;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Style for date text */
+.date-text {
+  color: #fff;
+  font-size: 26px;
+  margin-top: 10px;
+  font-family: 'Roboto', sans-serif;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Style for the input form */
+.birthday-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.input-label {
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-size: 18px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Style for input box */
+.birthday-input {
+  padding: 10px;
+  width: 100%;
+  max-width: 300px;
+  border: 2px solid #ff77ff;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.birthday-input:focus {
+  border-color: #ff007f;
+  box-shadow: 0 0 10px #ff77ff;
+}
+
+/* Style for submit button */
+.submit-button {
+  background-color: #ff007f;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.submit-button:hover {
+  background-color: #ff77ff;
+  transform: scale(1.05);
+}
+
+/* Style for error message */
+.error-message {
+  color: #ff0000;
+  font-size: 18px;
+  margin-top: 10px;
+  background-color: rgba(255, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 10px;
+  animation: shake 0.5s ease-in-out;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Animation for error shake */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+/* Style for countdown box */
+.countdown-box {
+  margin-top: 20px;
+  padding: 20px;
+  border: 2px solid #ff77ff;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 20px 5px rgba(255, 119, 255, 0.6), 0 0 40px 20px rgba(255, 119, 255, 0.3);
+  animation: glowCountdown 1s infinite alternate;
+  width: 100%;
+  max-width: 400px;
+}
+
+.countdown-text {
+  color: #fff;
+  font-size: 32px;
+  text-align: center;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes glowCountdown {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 119, 255, 0.6);
   }
-  
-  /* Style for the clock container */
-  .clock-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
+  100% {
+    box-shadow: 0 0 30px rgba(255, 119, 255, 0.8);
   }
-  
-  /* Style for the clock */
-  .clock {
-    background-color: transparent; /* Nền hoàn toàn trong suốt */
-    border-radius: 20px; /* Bo góc nhẹ */
-    padding: 40px;
-    width: 500px;
-    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.6), 0 0 60px 30px rgba(255, 255, 255, 0.3); /* Viền phát sáng */
-    text-align: center;
-    position: relative;
-    border: 3px solid transparent;
-    animation: glow 4s infinite alternate; /* Hiệu ứng phát sáng */
-  }
-  
-  /* Style for time text */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .time-text {
-    color: #fff;
-    font-size: 56px;
-    margin: 0;
-    font-family: 'Pacifico', cursive; /* Font mềm mại */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Tạo bóng giúp văn bản nổi bật hơn trên nền */
+    font-size: 48px;
   }
-  
-  /* Style for date text */
+
   .date-text {
-    color: #fff;
-    font-size: 26px;
-    margin-top: 10px;
-    font-family: 'Roboto', sans-serif;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Bóng giúp văn bản nổi bật */
+    font-size: 22px;
   }
-  
-  /* Style for the input form */
-  .birthday-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  .input-label {
-    color: #ffffff;
-    margin-bottom: 10px;
-    font-size: 18px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Bóng nhẹ */
-  }
-  
-  /* Style for input box */
+
   .birthday-input {
-    padding: 10px;
-    width: 300px;
-    border: 2px solid #ff77ff;
-    border-radius: 10px;
-    font-size: 16px;
-    margin-bottom: 10px;
-    outline: none;
-    background-color: rgba(0, 0, 0, 0.4); /* Nền trong suốt đậm hơn để làm nổi văn bản */
-    color: #fff;
-    text-align: center;
-    transition: all 0.3s ease-in-out;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Giúp text trong input nổi bật */
+    max-width: 250px;
+    font-size: 14px;
   }
-  
-  .birthday-input:focus {
-    border-color: #ff007f;
-    box-shadow: 0 0 10px #ff77ff;
-  }
-  
-  /* Style for submit button */
+
   .submit-button {
-    background-color: #ff007f;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    font-size: 14px;
+    padding: 8px 16px;
   }
-  
-  .submit-button:hover {
-    background-color: #ff77ff;
-    transform: scale(1.05);
-  }
-  
-  /* Style for error message */
-  .error-message {
-    color: #ff0000;
-    font-size: 18px;
-    margin-top: 10px;
-    background-color: rgba(255, 0, 0, 0.1);
-    padding: 10px;
-    border-radius: 10px;
-    animation: shake 0.5s ease-in-out;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Bóng cho text trong error */
-  }
-  
-  /* Animation for error shake */
-  @keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
-    100% { transform: translateX(0); }
-  }
-  
-  /* Style for countdown box */
-  .countdown-box {
-    margin-top: 20px;
-    padding: 20px;
-    border: 2px solid #ff77ff;
-    border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.5); /* Nền trong suốt để làm nổi bật khung countdown */
-    box-shadow: 0 0 20px 5px rgba(255, 119, 255, 0.6), 0 0 40px 20px rgba(255, 119, 255, 0.3);
-    animation: glowCountdown 1s infinite alternate;
-  }
-  
+
   .countdown-text {
-    color: #fff;
-    font-size: 32px;
-    text-align: center;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Giúp văn bản trong countdown nổi bật */
+    font-size: 28px;
   }
-  
-  @keyframes glowCountdown {
-    0% {
-      box-shadow: 0 0 10px rgba(255, 119, 255, 0.6);
-    }
-    100% {
-      box-shadow: 0 0 30px rgba(255, 119, 255, 0.8);
-    }
+}
+
+@media (max-width: 480px) {
+  .time-text {
+    font-size: 36px;
   }
-  
+
+  .date-text {
+    font-size: 18px;
+  }
+
+  .birthday-input {
+    max-width: 200px;
+    font-size: 12px;
+  }
+
+  .submit-button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .countdown-box {
+    max-width: 300px;
+  }
+
+  .countdown-text {
+    font-size: 24px;
+  }
+}

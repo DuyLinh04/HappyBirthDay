@@ -1,37 +1,52 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
-const CLIENT_ID = '172797547297-5eh4mn8vljf0ig9s2u7r2d21q42pdqmn.apps.googleusercontent.com';  // Thay bằng Google Client ID của bạn
-
 const Login = () => {
   const navigate = useNavigate();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-  // Sử dụng useCallback để ngăn hàm handleCredentialResponse thay đổi mỗi lần render
-  const handleCredentialResponse = useCallback((response) => {
-    console.log('Encoded JWT ID token: ' + response.credential);
-    navigate('/greeting'); // Chuyển hướng sau khi đăng nhập thành công
-  }, [navigate]); // Thêm navigate vào dependency array
+  const handleLogin = (e) => {
+    e.preventDefault();
 
-  useEffect(() => {
-    /* Initialize Google Identity Services */
-    window.google.accounts.id.initialize({
-      client_id: CLIENT_ID,
-      callback: handleCredentialResponse,
-    });
-
-    /* Render the Google Sign-In button */
-    window.google.accounts.id.renderButton(
-      document.getElementById('google-button'),
-      { theme: 'outline', size: 'large' }
-    );
-  }, [handleCredentialResponse]); // Đưa handleCredentialResponse vào dependency array
+    // Perform simple validation (this can be replaced with a real authentication process)
+    if (username === 'ngocanhs' && password === '11/10/2003') {
+      navigate('/greeting'); // Redirect on successful login
+    } else {
+      alert('Invalid username or password. Please try again.');
+    }
+  };
 
   return (
     <div className="login-container">
       <div className="login-box">
         <h2>Welcome! Please sign in</h2>
-        <div id="google-button"></div>
+        <form onSubmit={handleLogin}>
+          <div className="form-group">
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" className="login-button">
+            Sign In
+          </button>
+        </form>
         <div className="pixel-cat">
           <img src="/cat.png" alt="Pixel Cat" className="cat" />
         </div>

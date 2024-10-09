@@ -8,6 +8,7 @@
   position: relative;
   overflow: hidden;
   font-family: 'Poppins', sans-serif;
+  padding: 20px;
 }
 
 .background-video {
@@ -28,7 +29,8 @@
 }
 
 .birthday-cake {
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
   height: auto;
   border-radius: 15px;
   animation: gradient-animation 5s ease infinite;
@@ -49,7 +51,7 @@
 /* Nút mở thiệp */
 .open-button-container {
   margin-top: 20px;
-  z-index: 20; /* Đảm bảo nút OPEN luôn nổi bật */
+  z-index: 20;
   display: flex;
   justify-content: center;
 }
@@ -58,7 +60,7 @@
   background: linear-gradient(45deg, #ff007f, #ff77ff);
   color: white;
   padding: 15px 30px;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
   border: 2px solid transparent;
   border-radius: 50px;
@@ -105,7 +107,6 @@
   100% { background-position: 0% 50%; }
 }
 
-
 /* Thiệp hiện ra sau khi nhấn OPEN */
 .greeting-card {
   position: absolute;
@@ -113,7 +114,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background: rgba(255, 255, 255, 0.2);
-  width: 40%;
+  width: 90%;
+  max-width: 500px;
   height: 60%;
   display: flex;
   justify-content: space-between;
@@ -128,24 +130,25 @@
 /* Nội dung thiệp */
 .card-content {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .message-section {
   flex: 1;
-  margin-right: 20px;
-  font-size: 18px;
+  font-size: 16px;
   color: white;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .image-section {
-  flex: 0.5;
+  display: flex;
+  justify-content: center;
 }
 
 .greeting-image {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
   border-radius: 10px;
 }
@@ -155,7 +158,7 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 150px; /* Điều chỉnh chiều cao nếu cần */
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -171,9 +174,9 @@
 
 .party-image {
   width: auto;
-  height: 120px;
+  height: 100px;
   margin: 0 10px;
-  border-radius: 10px; /* Bo góc cho các ảnh */
+  border-radius: 10px;
   transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
   opacity: 0.7;
   position: relative;
@@ -199,7 +202,6 @@
   z-index: -1;
 }
 
-/* Hiệu ứng gradient đổi màu cho viền khi hover */
 @keyframes gradient-border-animation {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -224,6 +226,7 @@
     transform: translateY(100vh) translateX(calc(-30px + 60px * var(--x-direction)));
   }
 }
+
 .audio-control {
   margin-top: 15px;
   display: flex;
@@ -255,9 +258,45 @@
   box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
 }
 
-@keyframes gradient-move {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+@media (max-width: 768px) {
+  .birthday-cake {
+    max-width: 300px;
+  }
+
+  .open-button {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+
+  .greeting-card {
+    width: 80%;
+  }
+
+  .message-section {
+    font-size: 14px;
+  }
 }
 
+@media (max-width: 480px) {
+  .birthday-cake {
+    max-width: 250px;
+  }
+
+  .open-button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .greeting-card {
+    width: 90%;
+    height: 70%;
+  }
+
+  .message-section {
+    font-size: 12px;
+  }
+
+  .audio-button {
+    font-size: 14px;
+  }
+}
